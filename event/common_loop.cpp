@@ -22,7 +22,7 @@ CommonLoop::~CommonLoop()
     assert(cb_level_ == 0);
 }
 
-bool CommonLoop::isInLoopThread()
+bool CommonLoop::isInLoopThread() const
 {
     std::lock_guard<std::recursive_mutex> g(lock_);
     return std::this_thread::get_id() == loop_thread_id_;

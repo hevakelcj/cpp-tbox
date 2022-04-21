@@ -22,7 +22,7 @@ class CommonLoop : public Loop {
     virtual ~CommonLoop() override;
 
   public:
-    virtual bool isInLoopThread() override;
+    virtual bool isInLoopThread() const override;
     virtual bool isRunning() const override;
 
     virtual void runInLoop(const Func &func) override;

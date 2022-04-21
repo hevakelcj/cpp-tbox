@@ -32,7 +32,7 @@ class Loop {
     virtual void exitLoop(const std::chrono::milliseconds &wait_time = std::chrono::milliseconds::zero()) = 0;
 
     //! 是否与Loop在同一个线程内
-    virtual bool isInLoopThread() = 0;
+    virtual bool isInLoopThread() const = 0;
     //! Loop是否正在运行
     virtual bool isRunning() const = 0;
 

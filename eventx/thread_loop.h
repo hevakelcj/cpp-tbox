@@ -13,7 +13,13 @@ class ThreadLoop {
     ~ThreadLoop();
 
   public:
-    event::Loop *loop() const { return sp_loop_; }
+    using Func = event::Loop::Func;
+
+    bool isRunning() const;
+    bool isInLoopThread() const;
+    void runInLoop(const Func &func);
+
+    void cleanup();
 
   protected:
     void threadProc();
@@ -22,6 +28,7 @@ class ThreadLoop {
     event::Loop *sp_loop_ = 0;
     std::thread thread_;
     bool is_running = false;
+    bool is_cleanup = false;
 };
 
 }
